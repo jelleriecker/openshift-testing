@@ -1,0 +1,17 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: java-test-app
+  namespace: java-test-app
+  labels:
+    app: java-test-app
+    app.kubernetes.io/component: java-test-app
+    app.kubernetes.io/instance: java-test-app
+spec:
+  to:
+    kind: Service
+    name: java-test-app
+    weight: 100
+  port:
+    targetPort: 8080
+  wildcardPolicy: None

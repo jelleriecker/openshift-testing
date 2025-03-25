@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1beta1
+kind: ArgoCD
+metadata:
+  name: example-argocd
+  labels:
+    example: repo
+spec:
+  repo:
+    replicas: 1
+  server:
+    replicas: 1
+    route:
+      enabled: true
+      path: /
+      tls:
+        insecureEdgeTerminationPolicy: Redirect
+        termination: passthrough
+      wildcardPolicy: None
